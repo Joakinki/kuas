@@ -1,36 +1,59 @@
 * {
     margin: 0;
     padding: 0;
-}
-body {
-    background-color: black;
-    width: 100vw;
-    height: 100%;
+    box-sizing: border-box;
 }
 
+header {
+    grid-area: header;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: "logo cont";
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+main {
+    grid-area: main;
+    width: 100%;
+    height: 100%;
+    
+
+}
+footer {
+    height: 100%;
+    grid-area: footer;
+    display: grid;
+    justify-content: space;
+    align-content: center;
+}
 @font-face {
     font-family: "poiret_one";
     src: url("../assets/fuentes/Poiret_One/PoiretOne-Regular.ttf");
 }
-header {
-    /* width: 100vw; */
-    height: 100px;
-    background-color: whitesmoke;
-    position: relative;
-}
+#grilla {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(167deg, rgba(15,8,135,1) 0%, rgba(27,123,143,1) 43%, rgba(20,156,185,1) 62%, rgba(14,197,235,1) 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.1fr 3fr 0.1fr;
+    grid-template-areas: "header header " "main main" "footer footer";
 
-main {
-    width: 100%;
-    height: 80%;
-    margin: 1px;
-    border: 1px solid chocolate;
-    background-color: #a18594;
 }
-footer {
-    width: 100%;
-    height: 100px;
-    border: 1px solid black;
-    background-color: #40cfff;
+#tituloPrincipal {
+    color: brown;
+    font-size: 100px;
+    font-family: "Rubik Mono One";
+    text-align: center;
+}
+#subtituloPrincipal {
+    color: crimson;
+    font-size: 50px;
+    font-family: "poiret_one";
+    text-align: center;
+
 }
 
 .estilo-textos {
@@ -40,7 +63,7 @@ footer {
     text-align: center;
 }
 .imagenes {
-    margin: 10px;
+    margin: 3px;
     display: inline-block;
 }
 .textos {
@@ -50,67 +73,45 @@ footer {
 }
 
 .background {
-    width: 600px;
-    height: 400px;
+    width: 100%;
+    height: 696PX;
     border: 1px dotted black;
     background-image: url("../assets/images/imagen\ de\ inicio.jpg");
     margin-top: 10px;
-    margin-left: 28%;
     margin-bottom: 10px;
     padding: 10px;
-    background-size: cover;
-    display: inline-block;
+    background-size: contain;
+}
+.section {
+    display: grid;
+    align-content: center;
+    justify-content: center;
 }
 .logo {
     width: 80px;
     height: 80px;
-    border: 1px solid;
+    margin: 2px;
+    border: 1px solid black;
     border-radius: 50px;
     background-image: url("../assets/images/logo.jpg");
-    display: inline-block;
-    margin: 3px;
-    text-align: left;
+    margin-bottom: 3px;
     background-size: cover;
+    grid-area: logo;
 }
 .botonera {
-    display: inline-flex;
-    margin-left: 800px;
+    justify-self: center;
+    text-align: justify;
 }
-
-    #tituloPrincipal{
-        color: brown;
-        font-size: 100px;
-        font-family: "Rubik Mono One";
-        text-align: center;
-    }
-    #subtituloPrincipal {
-        color: crimson;
-        font-size: 50px;
-        font-family: "poiret_one";
-        text-align: center;
-
-    }
-
-
-
+.cont {
+    text-align: right;
+    margin: 2px;
+    grid-area: cont;
+}
 ul {
     margin: 20px;
     list-style-type: none;
 }
-nav {
 
-    margin: 10px 10px 10px 450px;
-
-}
-/* nav ul{
-    text-align: right;
-} */
-
-.cont {
-    display: inline-block;
-    text-align: right;
-    margin: 3px;
-}
 nav ul li {
     display: inline;
     margin: 10px;
@@ -121,10 +122,98 @@ nav ul li {
 }
 
 li a {
-    display: inline-block;
     color: black;
     text-decoration: none;
 }
 fieldset {
     margin: 10px;
+}
+
+@media only screen and (max-width:1200px) {
+    #grilla {
+        background-color: aqua;
+    }
+
+}
+@media only screen and (max-width:768px) {
+    #grilla {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.1fr 5fr 1fr;
+        grid-template-areas: "header header " 
+                            "main main" 
+                            "footer footer";
+    }
+    .tablet{
+display: grid;
+justify-content: center;
+align-content:space-around;
+
+    }
+
+    .background {
+        width: 100%;
+        height: 575PX;
+        border: 1px dotted black;
+        background-image: url("../assets/images/imagen\ de\ inicio.jpg");
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-size: contain;
+    }
+    .cont {
+        font-size: small;
+        text-align: right;
+        margin: 3px;
+        grid-area: cont;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    #grilla {
+        background-color: brown;
+        height: 100%;
+
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: ". . logo . ." "cont cont cont cont cont ";
+        justify-content: center;
+        align-content: center;
+    }
+    main{
+        height: 100%;
+
+
+    }
+    footer{
+        height: 100%;
+    }
+    nav ul li {
+        display: inline-block;
+        margin: 2px;
+        background-color: white;
+        padding: o;
+        border: 2px solid black;
+
+    }
+
+    .imagenes{
+
+        width: 100%;
+    }
+
+    .background {
+        width: 100%;
+        height: 362PX;
+        border: 1px dotted black;
+        background-image: url("../assets/images/imagen\ de\ inicio.jpg");
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-size: contain;
+    }
 }
